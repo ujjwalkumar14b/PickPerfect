@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PickPerfect</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+
+    <div class="container py-3">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg navbar-light border-bottom mb-4">
+            <div class="container-fluid px-0">
+                <a class="navbar-brand fw-bold fs-3" href="#">PickPerfect</a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex gap-2 ms-auto mt-3 mt-lg-0 align-items-center" role="search" method="POST" action="/recommend">
+                        <select name="product" class="form-select form-select-md border-2 shadow-none" required>
+                            <option value="">Select a Product...</option>
+                            {% for product in products %}
+                            <option value="{{ product }}" {% if product == selected_product %}selected{% endif %}>
+                                {{ product }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <button class="btn btn-dark rounded-circle flex-shrink-0" style="width: 42px; height: 42px;" type="submit">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="my-5">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7">
+                    <p class="text-uppercase tracking-wider fw-bold text-muted small mb-2">Data Science Project</p>
+                    <h1 class="display-5 fw-bold mb-3">Building intelligent systems through <span class="text-primary">Data Science and Machine Learning</span></h1>
+                    <p class="lead mb-4">Helping customers discover products that matter through advanced algorithmic recommendation models.</p>
+                    <div class="d-flex gap-3 flex-wrap align-items-center">
+                        <a href="#models" class="btn-bw-outline">Explore Models</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <img src="{{ url_for('static', filename='Logo.png') }}" alt="PickPerfect Logo" class="img-fluid-custom" style="max-height: 15rem;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 01: Project Workflow -->
+        <section class="mt-5 pt-4">
+            <h2 class="section-title">01. Project Workflow</h2>
+            <div class="bw-card">
+                <ol class="row g-3 ps-3 mb-0">
+                    <li class="col-md-6 col-lg-4 fw-semibold"><span class="text-dark">Importing Libraries</span></li>
+                    <li class="col-md-6 col-lg-4 fw-semibold"><span class="text-dark">Data Collection</span></li>
+                    <li class="col-md-6 col-lg-4 fw-semibold"><span class="text-dark">Exploratory Data Analysis</span></li>
+                    <li class="col-md-6 col-lg-4 fw-semibold"><span class="text-dark">Model Training</span></li>
+                    <li class="col-md-6 col-lg-4 fw-semibold"><span class="text-dark">Model Evaluation</span></li>
+                    <li class="col-md-6 col-lg-4 fw-semibold"><span class="text-dark">Model Serialization</span></li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Section 02: Tech Stack / Importing Libraries -->
+        <section class="mt-5 pt-4">
+            <h2 class="section-title">02. Tech Stack & Libraries</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="bw-card h-100">
+                        <h5 class="text-uppercase fw-bold border-bottom pb-2 mb-3">Data Analysis</h5>
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-1">
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Python</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>NumPy</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Pandas</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Matplotlib</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Seaborn</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>SQL</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="bw-card h-100">
+                        <h5 class="text-uppercase fw-bold border-bottom pb-2 mb-3">Machine Learning</h5>
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-1">
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Scikit-Learn</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Supervised Learning</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Unsupervised Learning</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="bw-card h-100">
+                        <h5 class="text-uppercase fw-bold border-bottom pb-2 mb-3">Mathematics</h5>
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-1">
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Probability</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Statistics</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Linear Algebra</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Calculus</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="bw-card h-100">
+                        <h5 class="text-uppercase fw-bold border-bottom pb-2 mb-3">Web & Tools</h5>
+                        <ul class="list-unstyled mb-0 d-flex flex-column gap-1">
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>HTML5 / CSS3</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Bootstrap 5</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Flask</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>Git & GitHub</li>
+                            <li><i class="fa-solid fa-angle-right me-2 text-muted"></i>VS Code / Jupyter</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Data Schema -->
+        <section class="mt-5 pt-4">
+            <h2 class="section-title">03. Data Features Collected</h2>
+            <div class="row g-3">
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-hashtag feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">InvoiceNo</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-barcode feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">StockCode</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-font feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">Description</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-cubes feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">Quantity</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-calendar-days feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">InvoiceDate</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-tag feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">UnitPrice</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-user feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">CustomerID</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-globe feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">Country</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 04: EDA Metrics -->
+        <section class="mt-5 pt-4">
+            <h2 class="section-title">04. Exploratory Data Analysis</h2>
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-coins mb-2 fs-4"></i>
+                        <h5 class="fw-bold mb-1">541,909</h5>
+                        <small class="text-muted">Transactions</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-users mb-2 fs-4"></i>
+                        <h5 class="fw-bold mb-1">4,290</h5>
+                        <small class="text-muted">Unique Users</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-basket-shopping mb-2 fs-4"></i>
+                        <h5 class="fw-bold mb-1">3,832</h5>
+                        <small class="text-muted">Unique Products</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-database mb-2 fs-4"></i>
+                        <h5 class="fw-bold mb-1">312,208</h5>
+                        <small class="text-muted">Train Accounts</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-file-lines mb-2 fs-4"></i>
+                        <h5 class="fw-bold mb-1">78,052</h5>
+                        <small class="text-muted">Test Accounts</small>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-hard-drive mb-2 fs-4"></i>
+                        <h5 class="fw-bold mb-1">44 MB</h5>
+                        <small class="text-muted">Raw Data</small>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="fw-bold mt-4 mb-3">Numerical Data Distribution</h4>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="bw-card p-2">
+                        <img src="{{ url_for('static', filename='Distribution of Quantity.png') }}" alt="Distribution of Quantity" class="img-fluid-custom" style="max-height: 12rem;">
+                        <p class="small text-muted mt-2 mb-0">Distribution of Quantity</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bw-card p-2">
+                        <img src="{{ url_for('static', filename='Distribution of UnitPrice.png') }}" alt="Distribution of UnitPrice" class="img-fluid-custom" style="max-height: 12rem;">
+                        <p class="small text-muted mt-2 mb-0">Distribution of UnitPrice</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bw-card p-2">
+                        <img src="{{ url_for('static', filename='Distribution of TotalPrice.png') }}" alt="Distribution of TotalPrice" class="img-fluid-custom" style="max-height: 12rem;">
+                        <p class="small text-muted mt-2 mb-0">Distribution of TotalPrice</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 class="fw-bold mt-4 mb-3">Categorical Data Distribution</h4>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="bw-card p-2">
+                        <img src="{{ url_for('static', filename='Top 5 Countries by Orders.png') }}" alt="Distribution of Quantity" class="img-fluid-custom" style="max-height: 12rem;">
+                        <p class="small text-muted mt-2 mb-0">Top 5 Countries by Orders</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bw-card p-2">
+                        <img src="{{ url_for('static', filename='Top 5 Countries by Revenue.png') }}" alt="Distribution of UnitPrice" class="img-fluid-custom" style="max-height: 12rem;">
+                        <p class="small text-muted mt-2 mb-0">Top 5 Countries by Revenue</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bw-card p-2">
+                        <img src="{{ url_for('static', filename='Top 20 Purchased Products.png') }}" alt="Distribution of TotalPrice" class="img-fluid-custom" style="max-height: 12rem;">
+                        <p class="small text-muted mt-2 mb-0">Top 20 Purchased Products</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 05: Models Training -->
+        <section class="mt-5 pt-4" id="models">
+            <h2 class="section-title">05. Model Architecture & Training</h2>
+            
+            <!-- Model 1 -->
+            <div class="row align-items-center g-4 mb-5">
+                <div class="col-lg-6">
+                    <h4 class="fw-bold">Popularity-Based Filtering</h4>
+                    <p class="text-muted">Recommends top-trending and globally popular products when user interaction data is unavailable.</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Loved by most customers globally</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Solves cold-start problems for new users</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Based on purchase frequency metrics</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Fast and lightweight computation</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='1.png') }}" alt="Popularity Model Diagram" class="img-fluid-custom" style="max-height: 18rem; border: 2px solid black;">
+                </div>
+            </div>
+
+            <!-- Model 2 -->
+            <div class="row align-items-center g-4 mb-5 flex-lg-row-reverse">
+                <div class="col-lg-6">
+                    <h4 class="fw-bold">Hybrid Recommendation System</h4>
+                    <p class="text-muted">Delivers smarter recommendations by blending collaborative and content-based filtering models.</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Combines collaborative & content features</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Maximizes recommendation accuracy</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Reduces data sparsity limitations</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Highly diverse personalized suggestions</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='2.png') }}" alt="Hybrid Model Diagram" class="img-fluid-custom" style="max-height: 18rem; border: 2px solid black;">
+                </div>
+            </div>
+
+            <!-- Model 3 -->
+            <div class="row align-items-center g-4 mb-5">
+                <div class="col-lg-6">
+                    <h4 class="fw-bold">User-Based Collaborative Filtering</h4>
+                    <p class="text-muted">Identifies users with similar purchasing history to suggest items bought by peer groups.</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Clusters users with similar tastes</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Leverages historical purchase patterns</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Personalized without needing item metadata</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Adapts dynamically as user behavior shifts</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='3.png') }}" alt="User-based CF Diagram" class="img-fluid-custom" style="max-height: 18rem; border: 2px solid black;">
+                </div>
+            </div>
+
+            <!-- Model 4 -->
+            <div class="row align-items-center g-4 mb-5 flex-lg-row-reverse">
+                <div class="col-lg-6">
+                    <h4 class="fw-bold">Item-Based Collaborative Filtering</h4>
+                    <p class="text-muted">Discovers products that are frequently bought together across transactions.</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Finds closely related catalog items</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> High stability for large user bases</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Ideal for "Frequently Bought Together"</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Scalable item matrix computation</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='4.png') }}" alt="Item-based CF Diagram" class="img-fluid-custom" style="max-height: 18rem; border: 2px solid black;">
+                </div>
+            </div>
+
+            <!-- Model 5 -->
+            <div class="row align-items-center g-4 mb-5">
+                <div class="col-lg-6">
+                    <h4 class="fw-bold">Content-Based Filtering</h4>
+                    <p class="text-muted">Matches product metadata, titles, and descriptions using feature extraction.</p>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Compares rich product characteristics</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Independent of other users' actions</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Effective for niche product discovery</li>
+                        <li class="d-flex align-items-center"><i class="fa-solid fa-check me-2"></i> Transparent & explainable recommendations</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="{{ url_for('static', filename='5.png') }}" alt="Content-based Filtering Diagram" class="img-fluid-custom" style="max-height: 18rem; border: 2px solid black;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 06: Evaluation Metrics Grid -->
+        <section class="mt-5 pt-4">
+            <h2 class="section-title">06. Model Evaluation Results</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="metric-card">
+                        <h5 class="fw-bold mb-3 border-bottom pb-2">Popularity System</h5>
+                        <ul>
+                            <li><span>Precision@5</span> <strong>8.23%</strong></li>
+                            <li><span>Recall@5</span> <strong>1.79%</strong></li>
+                            <li><span>F1@5</span> <strong>2.38%</strong></li>
+                            <li><span>HitRate@5</span> <strong>32.23%</strong></li>
+                            <li><span>MAP@5</span> <strong>4.79</strong></li>
+                            <li><span>NDCG@5</span> <strong>8.71%</strong></li>
+                            <li><span>Coverage</span> <strong>0.13%</strong></li>
+                            <li><span>Personalization</span> <strong>0.00%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="metric-card">
+                        <h5 class="fw-bold mb-3 border-bottom pb-2">Hybrid System</h5>
+                        <ul>
+                            <li><span>Precision@5</span> <strong>5.41%</strong></li>
+                            <li><span>Recall@5</span> <strong>1.46%</strong></li>
+                            <li><span>F1@5</span> <strong>1.87%</strong></li>
+                            <li><span>HitRate@5</span> <strong>18.13%</strong></li>
+                            <li><span>MAP@5</span> <strong>3.66</strong></li>
+                            <li><span>NDCG@5</span> <strong>6.03%</strong></li>
+                            <li><span>Coverage</span> <strong>26.41%</strong></li>
+                            <li><span>Personalization</span> <strong>98.34%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="metric-card">
+                        <h5 class="fw-bold mb-3 border-bottom pb-2">User CF System</h5>
+                        <ul>
+                            <li><span>Precision@5</span> <strong>3.55%</strong></li>
+                            <li><span>Recall@5</span> <strong>0.74%</strong></li>
+                            <li><span>F1@5</span> <strong>1.08%</strong></li>
+                            <li><span>HitRate@5</span> <strong>14.67%</strong></li>
+                            <li><span>MAP@5</span> <strong>2.01</strong></li>
+                            <li><span>NDCG@5</span> <strong>3.75%</strong></li>
+                            <li><span>Coverage</span> <strong>30.74%</strong></li>
+                            <li><span>Personalization</span> <strong>99.31%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="metric-card">
+                        <h5 class="fw-bold mb-3 border-bottom pb-2">Item CF System</h5>
+                        <ul>
+                            <li><span>Precision@5</span> <strong>3.68%</strong></li>
+                            <li><span>Recall@5</span> <strong>1.06%</strong></li>
+                            <li><span>F1@5</span> <strong>1.31%</strong></li>
+                            <li><span>HitRate@5</span> <strong>12.88%</strong></li>
+                            <li><span>MAP@5</span> <strong>2.65</strong></li>
+                            <li><span>NDCG@5</span> <strong>4.32%</strong></li>
+                            <li><span>Coverage</span> <strong>24.35%</strong></li>
+                            <li><span>Personalization</span> <strong>98.15%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="metric-card">
+                        <h5 class="fw-bold mb-3 border-bottom pb-2">Content-Based System</h5>
+                        <ul>
+                            <li><span>Precision@5</span> <strong>4.79%</strong></li>
+                            <li><span>Recall@5</span> <strong>1.26%</strong></li>
+                            <li><span>F1@5</span> <strong>1.62%</strong></li>
+                            <li><span>HitRate@5</span> <strong>17.86%</strong></li>
+                            <li><span>MAP@5</span> <strong>2.92</strong></li>
+                            <li><span>NDCG@5</span> <strong>5.09%</strong></li>
+                            <li><span>Coverage</span> <strong>25.29%</strong></li>
+                            <li><span>Personalization</span> <strong>97.98%</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 07: Assessment Summaries -->
+        <section class="mt-5 pt-4">
+            <h2 class="section-title">07. Assessment Insights</h2>
+            <div class="d-flex flex-column gap-3">
+                <div class="bw-card">
+                    <h5 class="fw-bold">Popularity-Based Model Assessment</h5>
+                    <p class="mb-0">Achieved the highest baseline accuracy (Precision 8.23%, Hit Rate 32.23%, NDCG 8.71%). However, it suffered from extremely low coverage (0.13%) and 0% personalization, delivering identical recommendations to all users.</p>
+                </div>
+                <div class="bw-card">
+                    <h5 class="fw-bold">Hybrid Model (Optimal Solution)</h5>
+                    <p class="mb-0">Proved to be the best overall model, combining high precision (5.41%), a strong Hit Rate (18.13%), and top-tier Personalization (98.34%) across all metrics.</p>
+                </div>
+                <div class="bw-card">
+                    <h5 class="fw-bold">User-Based Collaborative Filtering</h5>
+                    <p class="mb-0">Delivered exceptional personalization (99.31%) and dynamic catalog coverage (30.74%). Accuracy metrics were limited by dataset sparsity.</p>
+                </div>
+                <div class="bw-card">
+                    <h5 class="fw-bold">Item-Based Collaborative Filtering</h5>
+                    <p class="mb-0">Outperformed User CF in precision and stability while yielding higher overall reliability across large user sessions.</p>
+                </div>
+                <div class="bw-card">
+                    <h5 class="fw-bold">Content-Based Filtering</h5>
+                    <p class="mb-0">Demonstrated solid individual performance (Precision 4.79%, Hit Rate 17.86%) with high personalization (97.98%) by leveraging product metadata.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 08: Benchmark Comparison -->
+        <section class="mt-5 pt-4">
+            <h2 class="section-title">08. Performance Benchmark Comparison</h2>
+            <div class="table-responsive bw-card p-0 overflow-hidden">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Metric</th>
+                            <th>Best System Result</th>
+                            <th>Good Target Range</th>
+                            <th>Status Assessment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold">Precision@5</td>
+                            <td>8.23% (Popularity)</td>
+                            <td>5–20%</td>
+                            <td><span class="badge bg-dark"><i class="fa-solid fa-circle-check"></i> Good</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Recall@5</td>
+                            <td>1.75% (Popularity)</td>
+                            <td>2–15%</td>
+                            <td><span class="badge bg-dark"><i class="fa-solid fa-triangle-exclamation"></i> Acceptable</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">F1@5</td>
+                            <td>2.35% (Popularity)</td>
+                            <td>3–15%</td>
+                            <td><span class="badge bg-dark"><i class="fa-solid fa-circle-check"></i> Good</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Hit Rate@5</td>
+                            <td>32.13% (Popularity)</td>
+                            <td>30–70%</td>
+                            <td><span class="badge bg-dark"><i class="fa-solid fa-circle-check"></i> Good</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">MAP@5</td>
+                            <td>4.77 (Popularity)</td>
+                            <td>2–10</td>
+                            <td><span class="badge bg-dark"><i class="fa-solid fa-circle-check"></i> Good</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">NDCG@5</td>
+                            <td>8.68% (Popularity)</td>
+                            <td>5–20%</td>
+                            <td><span class="badge bg-dark"><i class="fa-solid fa-circle-check"></i> Good</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Coverage</td>
+                            <td>30.79% (User CF)</td>
+                            <td>20–60%</td>
+                            <td><span class="badge bg-dark"><i class="fa-solid fa-star"></i> Very Good</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Personalization</td>
+                            <td>99.31% (User CF)</td>
+                            <td>80–99%</td>
+                            <td><span class="badge bg-dark"><i class="fa-solid fa-trophy"></i> Excellent</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="mt-5 text-center text-muted">
+            <small>&copy; PickPerfect - Product Recommendation System</small>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
