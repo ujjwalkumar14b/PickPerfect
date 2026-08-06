@@ -8,8 +8,7 @@ This project recommend products based on user preference. It is done by collabor
 PickPerfect/
 │
 ├── data/
-│   ├── raw_data.html  
-|   └── cleaned_data.html
+|   └── cleaned_data.csv
 |
 ├── models/
 |   ├── model_cf_item.pkl                           
