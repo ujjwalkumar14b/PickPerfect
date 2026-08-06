@@ -9,7 +9,7 @@ app = Flask(__name__)
 # ==========================================================
 # LOAD DATA
 # ==========================================================
-df = pd.read_csv("data/cleaned_data.csv", encoding="latin1")
+df = pd.read_csv("data/cleaned_data.csv.gz", compression="gzip", encoding="latin1")
 customer_id = 17850
 products = sorted(df["Description"].dropna().astype(str).unique().tolist())
 
