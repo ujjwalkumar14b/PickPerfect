@@ -21,6 +21,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="d-flex gap-2 ms-auto mt-3 mt-lg-0 align-items-center" role="search" method="POST" action="/recommend">
+                        <select name="customer_id" class="form-select form-select-md border-2 shadow-none" style="min-width: 160px;" required>
+                            <option value="">Select Customer...</option>
+                            {% for cid in customers %}
+                            <option value="{{ cid }}" {% if cid == selected_customer %}selected{% endif %}>
+                                CustomerID {{ cid }}
+                            </option>
+                            {% endfor %}
+                        </select>
                         <select name="product" class="form-select form-select-md border-2 shadow-none" required>
                             <option value="">Select a Product...</option>
                             {% for product in products %}
