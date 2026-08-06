@@ -1,11 +1,11 @@
-# Product Recommendation System
+# PickPerfect - Product Recommendation System
 
 ## Overview
 This project recommend products based on user preference. It is done by collaborative, content-based, hybrid filtering techniques and popularity techniques.
 
 ## Project Structure
 ```
-Product_Recommendation_System/
+PickPerfect/
 │
 ├── data/
 │   ├── raw_data.html  
