@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import os
+import urllib.request
 import pandas as pd
 import joblib
 
@@ -17,6 +18,24 @@ DEFAULT_CUSTOMER_ID = 17850
 # ==========================================================
 # LOAD MODELS
 # ==========================================================
+os.makedirs("models", exist_ok=True)
+MODEL_URLS = {
+    "models/model_popular.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_popular.pkl",
+    "models/model_user_item.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_user_item.pkl",
+    "models/model_cf_user.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_cf_user.pkl",
+    "models/model_cf_item.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_cf_item.pkl",
+    "models/model_content.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_content.pkl",
+    "models/model_hybrid.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_hybrid.pkl",
+}
+
+# Download any missing model files automatically at startup
+for path, url in MODEL_URLS.items():
+    if not os.path.exists(path):
+        print(f"Downloading {path}...")
+        urllib.request.urlretrieve(url, path)
+        print(f"Downloaded {path} successfully.")
+        
+        
 model_popular = joblib.load("models/model_popular.pkl")
 model_user_item = joblib.load("models/model_user_item.pkl")
 model_cf_user = joblib.load("models/model_cf_user.pkl")
