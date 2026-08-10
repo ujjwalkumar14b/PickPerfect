@@ -69,36 +69,7 @@
 
         {% if selected_product %}
         <section id="recommendations" class="mt-5 pt-4">
-            <h2 class="section-title">Recommendations Overview</h2>
-            <div class="bw-card mb-4">
-                <div class="row g-3">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="bw-card h-100 text-center p-3">
-                            <h5 class="fw-bold mb-2">Product</h5>
-                            <p class="mb-0 text-dark">{{ selected_product }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="bw-card h-100 text-center p-3">
-                            <h5 class="fw-bold mb-2">Price</h5>
-                            <p class="mb-0 text-dark">${{ product_details[selected_product]['price'] if selected_product in product_details else 'N/A' }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="bw-card h-100 text-center p-3">
-                            <h5 class="fw-bold mb-2">Country</h5>
-                            <p class="mb-0 text-dark">{{ product_details[selected_product]['country'] if selected_product in product_details else 'Unknown' }}</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="bw-card h-100 text-center p-3">
-                            <h5 class="fw-bold mb-2">Recommendation Types</h5>
-                            <p class="mb-0 text-dark">Popularity, Hybrid, Collaborative, Content</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            
             <div class="row g-4">
                 <div class="col-lg-4">
                     <h3 class="section-title">Trending Products</h3>
@@ -110,7 +81,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-1">{{ item }}</h6>
-                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }} • {{ product_details[item]['country'] if item in product_details else 'Unknown' }}</small>
+                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }}</small>
                             </div>
                         </div>
                         {% endfor %}
@@ -127,7 +98,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-1">{{ item }}</h6>
-                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }} • {{ product_details[item]['country'] if item in product_details else 'Unknown' }}</small>
+                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }}</small>
                             </div>
                         </div>
                         {% endfor %}
@@ -144,7 +115,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-1">{{ item }}</h6>
-                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }} • {{ product_details[item]['country'] if item in product_details else 'Unknown' }}</small>
+                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }}</small>
                             </div>
                         </div>
                         {% endfor %}
@@ -163,7 +134,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-1">{{ item }}</h6>
-                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }} • {{ product_details[item]['country'] if item in product_details else 'Unknown' }}</small>
+                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }}</small>
                             </div>
                         </div>
                         {% endfor %}
@@ -179,7 +150,7 @@
                             </div>
                             <div>
                                 <h6 class="mb-1">{{ item }}</h6>
-                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }} • {{ product_details[item]['country'] if item in product_details else 'Unknown' }}</small>
+                                <small class="text-muted">Price: ${{ product_details[item]['price'] if item in product_details else 'N/A' }}</small>
                             </div>
                         </div>
                         {% endfor %}
