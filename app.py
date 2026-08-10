@@ -54,7 +54,6 @@ for _, row in df.iterrows():
     if product not in product_details:
         product_details[product] = {
             "price": round(float(row["UnitPrice"]), 2),
-            "country": str(row["Country"])
         }
 
 
