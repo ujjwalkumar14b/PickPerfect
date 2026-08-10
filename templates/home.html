@@ -49,7 +49,7 @@
         <section class="my-5">
             <div class="row align-items-center g-4">
                 <div class="col-lg-7">
-                    <p class="text-uppercase tracking-wider fw-bold text-muted small mb-2">Data Science Project</p>
+                    <p class="text-uppercase tracking-wider fw-bold text-muted small mb-2">Product Recommendation System</p>
                     <h1 class="display-5 fw-bold mb-3">Building intelligent systems through <span class="text-primary">Data Science and Machine Learning</span></h1>
                     <p class="lead mb-4">Helping customers discover products that matter through advanced algorithmic recommendation models.</p>
                     <div class="d-flex gap-3 flex-wrap align-items-center">
@@ -133,17 +133,29 @@
         <!-- Section 03: Data Schema -->
         <section class="mt-5 pt-4">
             <h2 class="section-title">03. Data Features Collected</h2>
-            <div class="row g-3">
+            <div class="row g-3 mb-4">
                 <div class="col-6 col-md-3 col-lg-3">
                     <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-hashtag feature-icon mb-2"></i>
-                        <h6 class="fw-bold mb-0">InvoiceNo</h6>
+                        <i class="fa-solid fa-coins feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">541,909 Transactions</h6>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3">
                     <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-barcode feature-icon mb-2"></i>
-                        <h6 class="fw-bold mb-0">StockCode</h6>
+                        <i class="fa-solid fa-users feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">4,290 Unique Users</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-basket-shopping feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">3,832 Unique Products</h6>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="bw-card text-center p-3">
+                        <i class="fa-solid fa-user feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">CustomerID</h6>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3">
@@ -160,26 +172,14 @@
                 </div>
                 <div class="col-6 col-md-3 col-lg-3">
                     <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-calendar-days feature-icon mb-2"></i>
-                        <h6 class="fw-bold mb-0">InvoiceDate</h6>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="bw-card text-center p-3">
                         <i class="fa-solid fa-tag feature-icon mb-2"></i>
                         <h6 class="fw-bold mb-0">UnitPrice</h6>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3">
                     <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-user feature-icon mb-2"></i>
-                        <h6 class="fw-bold mb-0">CustomerID</h6>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-globe feature-icon mb-2"></i>
-                        <h6 class="fw-bold mb-0">Country</h6>
+                        <i class="fa-solid fa-calendar-days feature-icon mb-2"></i>
+                        <h6 class="fw-bold mb-0">InvoiceDate</h6>
                     </div>
                 </div>
             </div>
@@ -188,93 +188,22 @@
         <!-- Section 04: EDA Metrics -->
         <section class="mt-5 pt-4">
             <h2 class="section-title">04. Exploratory Data Analysis</h2>
-            <div class="row g-3 mb-4">
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-coins mb-2 fs-4"></i>
-                        <h5 class="fw-bold mb-1">541,909</h5>
-                        <small class="text-muted">Transactions</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-users mb-2 fs-4"></i>
-                        <h5 class="fw-bold mb-1">4,290</h5>
-                        <small class="text-muted">Unique Users</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-basket-shopping mb-2 fs-4"></i>
-                        <h5 class="fw-bold mb-1">3,832</h5>
-                        <small class="text-muted">Unique Products</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-database mb-2 fs-4"></i>
-                        <h5 class="fw-bold mb-1">312,208</h5>
-                        <small class="text-muted">Train Accounts</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-file-lines mb-2 fs-4"></i>
-                        <h5 class="fw-bold mb-1">78,052</h5>
-                        <small class="text-muted">Test Accounts</small>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-2">
-                    <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-hard-drive mb-2 fs-4"></i>
-                        <h5 class="fw-bold mb-1">44 MB</h5>
-                        <small class="text-muted">Raw Data</small>
-                    </div>
-                </div>
-            </div>
 
             <h4 class="fw-bold mt-4 mb-3">Numerical Data Distribution</h4>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <div class="bw-card p-2">
-                        <img src="{{ url_for('static', filename='Distribution of Quantity.png') }}" alt="Distribution of Quantity" class="img-fluid-custom" style="max-height: 12rem;">
-                        <p class="small text-muted mt-2 mb-0">Distribution of Quantity</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bw-card p-2">
-                        <img src="{{ url_for('static', filename='Distribution of UnitPrice.png') }}" alt="Distribution of UnitPrice" class="img-fluid-custom" style="max-height: 12rem;">
-                        <p class="small text-muted mt-2 mb-0">Distribution of UnitPrice</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bw-card p-2">
-                        <img src="{{ url_for('static', filename='Distribution of TotalPrice.png') }}" alt="Distribution of TotalPrice" class="img-fluid-custom" style="max-height: 12rem;">
-                        <p class="small text-muted mt-2 mb-0">Distribution of TotalPrice</p>
-                    </div>
-                </div>
+            <div class="row">
+                <div class="col-6"><img src="{{ url_for('static', filename='Quantity Distribution.png') }}" alt="Quantity Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
+                <div class="col-6"><img src="{{ url_for('static', filename='UnitPrice Distribution.png') }}" alt="UnitPrice Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
             </div>
 
-            <h4 class="fw-bold mt-4 mb-3">Categorical Data Distribution</h4>
-            <div class="row g-4 text-center">
-                <div class="col-md-4">
-                    <div class="bw-card p-2">
-                        <img src="{{ url_for('static', filename='Top 5 Countries by Orders.png') }}" alt="Distribution of Quantity" class="img-fluid-custom" style="max-height: 12rem;">
-                        <p class="small text-muted mt-2 mb-0">Top 5 Countries by Orders</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bw-card p-2">
-                        <img src="{{ url_for('static', filename='Top 5 Countries by Revenue.png') }}" alt="Distribution of UnitPrice" class="img-fluid-custom" style="max-height: 12rem;">
-                        <p class="small text-muted mt-2 mb-0">Top 5 Countries by Revenue</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="bw-card p-2">
-                        <img src="{{ url_for('static', filename='Top 20 Purchased Products.png') }}" alt="Distribution of TotalPrice" class="img-fluid-custom" style="max-height: 12rem;">
-                        <p class="small text-muted mt-2 mb-0">Top 20 Purchased Products</p>
-                    </div>
-                </div>
+            <h4 class="fw-bold mt-4 mb-3">Numerical Data Outliers</h4>
+            <div class="row">
+                <div class="col-6"><img src="{{ url_for('static', filename='Quantity Outliers.png') }}" alt="Quantity Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
+                <div class="col-6"><img src="{{ url_for('static', filename='UnitPrice Outliers.png') }}" alt="UnitPrice Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
+            </div>
+
+            <h4 class="fw-bold mt-4 mb-3">Top 20 Purchased Products</h4>
+            <div class="row">
+                <div class="col-12"><img src="{{ url_for('static', filename='Top Products.png') }}" alt="Top Products" class="img-fluid-custom" style="border: 2px solid black;"></div>
             </div>
         </section>
 
