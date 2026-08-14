@@ -3,6 +3,11 @@
 ## Overview
 This project recommend products based on user preference. It is done by collaborative, content-based, hybrid filtering techniques and popularity techniques.
 
+![Deployment Page 1 Overview](deployment1.jpg)
+![Deployment Page 2 Overview](deployment2.jpg)
+![Deployment Page 3 Overview](deployment3.jpg)
+
+
 ## Project Structure
 ```
 PickPerfect/
