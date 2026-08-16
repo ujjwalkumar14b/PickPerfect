@@ -10,7 +10,7 @@ app = Flask(__name__)
 # LOAD DATA
 # ==========================================================
 df = pd.read_csv("artifacts/data.csv", encoding="latin1")
-products = sorted(df["Description"].dropna().astype(str).unique().tolist())
+products = sorted(df["Product"].dropna().astype(str).unique().tolist())
 customers = sorted(df["CustomerID"].dropna().astype(int).unique().tolist())
 DEFAULT_CUSTOMER_ID = 17850
 
