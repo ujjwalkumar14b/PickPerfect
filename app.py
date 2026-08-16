@@ -20,12 +20,12 @@ DEFAULT_CUSTOMER_ID = 17850
 # ==========================================================
 os.makedirs("models", exist_ok=True)
 MODEL_URLS = {
-    "models/model_popular.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_popular.pkl",
-    "models/model_user_item.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_user_item.pkl",
-    "models/model_cf_user.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_cf_user.pkl",
-    "models/model_cf_item.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_cf_item.pkl",
-    "models/model_content.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_content.pkl",
-    "models/model_hybrid.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_hybrid.pkl",
+    "artifacts/model_popular.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_popular.pkl",
+    "artifacts/model_user_item.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_user_item.pkl",
+    "artifacts/model_cf_user.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_cf_user.pkl",
+    "artifacts/model_cf_item.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_cf_item.pkl",
+    "artifacts/model_content.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_content.pkl",
+    "artifacts/model_hybrid.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_hybrid.pkl",
 }
 
 # Download any missing model files automatically at startup
