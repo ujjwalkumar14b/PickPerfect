@@ -9,7 +9,7 @@ app = Flask(__name__)
 # ==========================================================
 # LOAD DATA
 # ==========================================================
-df = pd.read_csv("data/cleaned_data.csv", encoding="latin1")
+df = pd.read_csv("data/data.csv", encoding="latin1")
 products = sorted(df["Description"].dropna().astype(str).unique().tolist())
 customers = sorted(df["CustomerID"].dropna().astype(int).unique().tolist())
 DEFAULT_CUSTOMER_ID = 17850
@@ -50,10 +50,10 @@ model_hybrid = joblib.load("models/model_hybrid.pkl")
 product_details = {}
 
 for _, row in df.iterrows():
-    product = str(row["Description"])
+    product = str(row["Product"])
     if product not in product_details:
         product_details[product] = {
-            "price": round(float(row["UnitPrice"]), 2),
+            "price": round(float(row["Price"]), 2),
         }
 
 
