@@ -18,7 +18,7 @@ DEFAULT_CUSTOMER_ID = 17850
 # ==========================================================
 # LOAD MODELS
 # ==========================================================
-os.makedirs("models", exist_ok=True)
+os.makedirs("artifacts", exist_ok=True)
 MODEL_URLS = {
     "artifacts/model_popular.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_popular.pkl",
     "artifacts/model_user_item.pkl": "https://github.com/ujjwalkumar14b/PickPerfect/releases/download/v1.0.0/model_user_item.pkl",
