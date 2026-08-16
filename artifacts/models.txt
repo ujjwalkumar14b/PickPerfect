@@ -1,0 +1,6 @@
+model_cf_item.pkl (102 MB)
+model_cf_user.pkl (117 MB)
+model_content.pkl (102 MB)
+model_hybrid.pkl (205 MB)
+model_popular.pkl (107 KB)
+model_user_item.pkl (110 MB)
