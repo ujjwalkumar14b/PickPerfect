@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PickPerfect</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='Logo.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -22,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="d-flex gap-2 ms-auto mt-3 mt-lg-0 align-items-center" role="search" method="POST" action="/recommend">
                         <select name="customer_id" class="form-select form-select-md border-2 shadow-none" style="min-width: 160px;" required>
-                            <option value="">Select Customer...</option>
+                            <option value="">Select CustomerID</option>
                             {% for cid in customers %}
                             <option value="{{ cid }}" {% if cid == selected_customer %}selected{% endif %}>
                                 CustomerID {{ cid }}
@@ -30,7 +31,7 @@
                             {% endfor %}
                         </select>
                         <select name="product" class="form-select form-select-md border-2 shadow-none" required>
-                            <option value="">Select a Product...</option>
+                            <option value="">Select Product</option>
                             {% for product in products %}
                             <option value="{{ product }}" {% if product == selected_product %}selected{% endif %}>
                                 {{ product }}
@@ -161,7 +162,7 @@
                 <div class="col-6 col-md-3 col-lg-3">
                     <div class="bw-card text-center p-3">
                         <i class="fa-solid fa-font feature-icon mb-2"></i>
-                        <h6 class="fw-bold mb-0">Description</h6>
+                        <h6 class="fw-bold mb-0">Product</h6>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 col-lg-3">
@@ -173,13 +174,7 @@
                 <div class="col-6 col-md-3 col-lg-3">
                     <div class="bw-card text-center p-3">
                         <i class="fa-solid fa-tag feature-icon mb-2"></i>
-                        <h6 class="fw-bold mb-0">UnitPrice</h6>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 col-lg-3">
-                    <div class="bw-card text-center p-3">
-                        <i class="fa-solid fa-calendar-days feature-icon mb-2"></i>
-                        <h6 class="fw-bold mb-0">InvoiceDate</h6>
+                        <h6 class="fw-bold mb-0">Price</h6>
                     </div>
                 </div>
             </div>
@@ -191,14 +186,14 @@
 
             <h4 class="fw-bold mt-4 mb-3">Numerical Data Distribution</h4>
             <div class="row">
-                <div class="col-6"><img src="{{ url_for('static', filename='Quantity Distribution.png') }}" alt="Quantity Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
-                <div class="col-6"><img src="{{ url_for('static', filename='UnitPrice Distribution.png') }}" alt="UnitPrice Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
+                <div class="col-6"><img src="{{ url_for('static', filename='Distribution_Quantity.png') }}" alt="Quantity Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
+                <div class="col-6"><img src="{{ url_for('static', filename='Distribution_Price.png') }}" alt="Price Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
             </div>
 
             <h4 class="fw-bold mt-4 mb-3">Numerical Data Outliers</h4>
             <div class="row">
-                <div class="col-6"><img src="{{ url_for('static', filename='Quantity Outliers.png') }}" alt="Quantity Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
-                <div class="col-6"><img src="{{ url_for('static', filename='UnitPrice Outliers.png') }}" alt="UnitPrice Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
+                <div class="col-6"><img src="{{ url_for('static', filename='Outliers_Quantity.png') }}" alt="Quantity Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
+                <div class="col-6"><img src="{{ url_for('static', filename='Outliers_Price.png') }}" alt="Price Distribution" class="img-fluid-custom" style="border: 2px solid black;"></div>
             </div>
 
             <h4 class="fw-bold mt-4 mb-3">Top 20 Purchased Products</h4>
