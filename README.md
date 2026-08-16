@@ -11,10 +11,8 @@ This project recommend products based on user preference. It is done by collabor
 ## Project Structure
 ```
 PickPerfect/
-│
 ├── data/
-|   └── cleaned_data.csv
-|
+|   └── data.csv
 ├── models/
 |   ├── model_cf_item.pkl                           
 |   ├── model_cf_user.pkl                          
@@ -22,25 +20,15 @@ PickPerfect/
 |   ├── model_hybrid.pkl                          
 |   ├── model_popular.pkl                           
 |   └── model_user_item.pkl 
-|
 ├── static/
 ├── templates/
 │   ├── home.html  
 |   └── recommend.html 
-|
 ├── app.py                                      
 ├── README.md                             
 └── Recommendation.ipynb 
 ```
 
-## Machine Learning Pipeline
-- Importing Libraries
-- Data Collection 
-- Data Preprocessing
-- Feature Engineering
-- Model Training
-- Model Evaluation  
-- Model Deploymwent
 
 ## Summary
 
