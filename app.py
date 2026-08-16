@@ -9,7 +9,7 @@ app = Flask(__name__)
 # ==========================================================
 # LOAD DATA
 # ==========================================================
-df = pd.read_csv("data/data.csv", encoding="latin1")
+df = pd.read_csv("artifacts/data.csv", encoding="latin1")
 products = sorted(df["Description"].dropna().astype(str).unique().tolist())
 customers = sorted(df["CustomerID"].dropna().astype(int).unique().tolist())
 DEFAULT_CUSTOMER_ID = 17850
@@ -36,12 +36,12 @@ for path, url in MODEL_URLS.items():
         print(f"Downloaded {path} successfully.")
         
         
-model_popular = joblib.load("models/model_popular.pkl")
-model_user_item = joblib.load("models/model_user_item.pkl")
-model_cf_user = joblib.load("models/model_cf_user.pkl")
-model_cf_item = joblib.load("models/model_cf_item.pkl")
-model_content = joblib.load("models/model_content.pkl")
-model_hybrid = joblib.load("models/model_hybrid.pkl")
+model_popular = joblib.load("artifacts/model_popular.pkl")
+model_user_item = joblib.load("artifacts/model_user_item.pkl")
+model_cf_user = joblib.load("artifacts/model_cf_user.pkl")
+model_cf_item = joblib.load("artifacts/model_cf_item.pkl")
+model_content = joblib.load("artifacts/model_content.pkl")
+model_hybrid = joblib.load("artifacts/model_hybrid.pkl")
 
 
 # ==========================================================
